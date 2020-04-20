@@ -1,5 +1,7 @@
 ## 20newsgroups dataset Topic Modeling
 
+![Project workflows](images/pipeline_diagram.png)
+
 #### Abstract
 In this final research, I will explore embeddings solutions for Topic clustering of the 20newsgroups dataset.
 Since deep learning is expensive and time-consuming, I will utilize Transfer Learning. The 2 pre-trained models

@@ -45,3 +45,14 @@ attention to compute context aware representations of words in a sentence that t
 ordering and identity of other words. The context aware word representations are averaged together to obtain a
 sentence-level embedding.”.
 
+#### ELMo vs Universal Sentence Embedding
+##### ELMo:
+The pre-trained Elmo embedding module is available on Tensorflow-hub. The module exposes 4 trainable scalar
+weights for layer aggregation. For this project, I will focus on ONLY 2 outputs:
+• default: a fixed mean-pooling of all contextualized word representations with shape [batch_size, 1024].
+• elmo: the weighted sum of the 3 layers, where the weights are trainable. This tensor has shape [batch_size,
+max_length, 1024]
+The most challenging part of utilizing ELMo embedding is the heavy workload. If I just load my X_train (2389
+rows) to the model, the machine will crash. So, I have to break down my dataset to multiple mini-batches of 5
+for training and pickle/store them for later uses.
+<img src="images/ELMo_embedding.png" width="500">

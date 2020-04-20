@@ -1,6 +1,6 @@
 ## 20newsgroups dataset Topic Modeling
 
-<img src="images/pipeline_diagram.png" width="300">
+<img src="images/pipeline_diagram.png" width="500">
 
 #### Abstract
 In this final research, I will explore embeddings solutions for Topic clustering of the 20newsgroups dataset.

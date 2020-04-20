@@ -37,3 +37,18 @@ This vector requires the most intensive processing power. The result is a 3-D ve
 
 ##### Universal Sentence Embedding:
 USE encodes text(not tokens) into high dimensional vectors. The model is available on Tensorflow-hub and the output is a vector of 512-dimension. This model does not require special pre-processing, but for this project, the input text received the same treatment like the input text for the ELMo’s `default` embedding.
+<img src="images/USE_embedding.png" width="500">
+
+#### Result
+After pre-processing and utilizing tSNE for dimensions reduction, the final step is performing Kmeans on the vectors data.
+<img src="images/final_graph.png">
+
+#### Silhouette analysis:
+S.A measure how close each point in a cluster is to the points in its neighboring clusters. Silhouette values lies in the range of [-1, 1]. +1 indicates that the sample is far away from its neighboring cluster and very close to the cluster its assigned. Similarly, value of -1 indicates that the point is close to its neighboring cluster than to the cluster its assigned.
+The red dotted line is the mean Silhouette score for the cluster in consideration. For this to be a good value for number of clusters, one should consider the following points:
+* The mean value should be as close to 1 as possible
+* The plot of each cluster should be above the mean value as much as possible. Any plot region below the
+mean value is not desirable.
+* Lastly, the width of the plot should be as uniform as possible.
+#### Conclusion:
+Through visualization and scores, we can tell that ELMo tokens yield the most decent performance out of 3. It has the highest S. score and its S. cluster plots have the most uniform shapes. Additionally, from the distributional graph of the original clusters, we can see that ELMo tokens is able to push data points to separable clusters which help Kmeans to easily separate them. The better in performance can be explained by that ELMo looks at individual word and provides more distinct information to help with the clustering task.
